@@ -14,6 +14,6 @@ led_test dut
 (
 	.clk           (clk),// 开发板上输入时钟: 50Mhz
 	.rst         	(rst),// 开发板上输入复位按键
-	.led_out       (led)// 输出LED灯,用于控制开发板上四个LED(LED0~LED3)
+	.led_out       (led) // 输出LED灯,用于控制开发板上1个LED(LED0)
 );
 endmodule 
