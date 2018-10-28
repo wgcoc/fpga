@@ -39,11 +39,33 @@ module fifo(
 					counter = counter + 1;
 					write_ptr = (write_ptr==15)? 0 : write_ptr+1;
 				end
-			2'10:
-			
+			2'b10:
+				begin
+					fifo_out = ram[read_ptr];
+					counter = counter + 1;
+					read_ptr = (read_ptr==15)? 0:read_ptr+1;
+				end
+			2'b11:
+				begin
+					if(counter==0)
+						fifo_out = fifo_in;
+					else
+					begin
+						ram[write_ptr] = fifo_in;
+						fifo_out = ram[read_ptr];
+						write_ptr = (write_ptr==15)? 0 : write_ptr+1;
+						read_ptr = (read_ptr==15)? 0 : write_ptr+1;
+					end
+				end
+			endcase
 		end
 	end
 
+	assign fifo_empty = (counter==0); //标志位赋值，组合电路
+	assign fifo_half  = (counter==8);
+	assign fifo_full  = (counter==15);
+
+endmodule 
 
 
  
