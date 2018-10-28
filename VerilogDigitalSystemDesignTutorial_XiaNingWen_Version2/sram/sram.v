@@ -8,10 +8,10 @@
 * Reference				: HM-65162 reference book		*
 ********************************************************************************/
 /********************************************************************************
-* sram is a Verilog HDL model for HM-65162,2K*8bit Asynchronous COMS Static	*
-* RAM.It is used in simulation to substitute the real RAM to verify whther	*
-* the writing or reading of the RAM is OK.This module is a behavioral model	*
-* for simulation only,not synthesizable.It's writing and reading function	*
+* sram is a Verilog HDL model for HM-65162,2K*8bit Asynchronous COMS Static		*
+* RAM.It is used in simulation to substitute the real RAM to verify whther		*
+* the writing or reading of the RAM is OK.This module is a behavioral model		*
+* for simulation only,not synthesizable.It's writing and reading function		*
 * are verified.									*
 ********************************************************************************/
 //-------------------------------sram--------------------------------------------
