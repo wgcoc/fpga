@@ -155,7 +155,53 @@ module sram(Address, Data, SRG, SRE, SRW);
 
 	always @(Data)
 	begin
-		
+		if(WrSram)
+		begin
+			#TDVEH; //Chip enable data setup time
+			if(SRE)
+			begin
+				WR_flag = 0;
+				$display("ERROR! Can't write! Chip enable data setup is too short!");
+			end
+		end
+	end
+
+	always @(Data)
+	begin
+		if(WrSram)
+		begin
+			#TDVEH;
+			if(SRW)
+			begin
+				WR_flag = 0;
+				$display("ERROR! Can't write! Chip enable data setup is too short!");
+			end		
+		end
+	end
+
+	always @(posedge SRW)
+	begin
+		#TWHDX; //Data hold time
+		if(DelayData !== Data)
+			$display("Warning! Data hold time is too short!");
+	end
+
+	always @(DelayAddr or DelayData or WrSramDly)
+	begin
+		if(!Addr[5])
+		begin
+			#15 SramMem[Adrr] = Data;
+			//$display("mem[%h]=%h",Addr,Data);
+			$fwrite(file,"mem[%h]=%h",Addr,Data);
+			if(Addr[0] && Addr[1]) $fwrite(file,"\n");
+		end
+
+		else
+		begin
+			$fclose(file);
+			$display("Please check the txt.");
+			$stop;
+		end		
 	end
 
 ********************************************************************************/
