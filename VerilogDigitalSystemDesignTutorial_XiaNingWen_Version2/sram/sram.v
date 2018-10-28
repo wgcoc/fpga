@@ -12,7 +12,7 @@
 * RAM.It is used in simulation to substitute the real RAM to verify whther	*
 * the writing or reading of the RAM is OK.This module is a behavioral model	*
 * for simulation only,not synthesizable.It's writing and reading function	*
-* are verified.									*
+* are verified.								*
 ********************************************************************************/
 //-------------------------------sram--------------------------------------------
 module sram(Address, Data, SRG, SRE, SRW);
