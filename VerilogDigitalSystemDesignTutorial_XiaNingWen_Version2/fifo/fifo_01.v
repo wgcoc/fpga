@@ -1,5 +1,5 @@
-//4*16 fifo
-module fifo_four(clk,rstp,din,readp,writep,dout,emptyp,fullp);
+//4*16 fifo_four
+module fifo_01(clk,rstp,din,readp,writep,dout,emptyp,fullp);
 	input clk;		//时钟
 	input rstp;		//复位
 	input [15:0] din;	//16位输入信号

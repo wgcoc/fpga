@@ -1,5 +1,5 @@
 //16*16 fifo
-module fifo(
+module fifo_00(
 	clock,
 	reset,
 	read,
