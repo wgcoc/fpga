@@ -15,10 +15,10 @@ module fifo_tb;
 
 	wire [7:0]  sram_data;		//SRAM数据总线
 	wire [10:0] address;		//SRAM地址总线
-	wire        rd,wr;			//SRAM读写控制信号
+	wire        rd,wr;		//SRAM读写控制信号
 
 	reg [7:0]   data_buf[`FIFO_SIZE:0]; //数据缓存，用于结果检测	
-	integer		index;					//用于读写data_buf的指针
+	integer	    index;		//用于读写data_buf的指针
 
 	//系统时钟
 	initial clk=0;
@@ -82,18 +82,18 @@ module fifo_tb;
 		$stop;
 	end
 	
-	fifo_interface_fifo_mk(.in_data(in_data),
-						.out_data(out_data),
-						.fiford(fiford),
-						.fifowr(fifoer),
-						.nfull(nfull),
-						.nempty(nempty),
-						.address(address),
-						.sram_data(sram_data),
-						.rd(rd),
-						.wr(wr),
-						.clk(clk),
-						.rst(rst)	);
+	fifo_interface fifo_mk(.in_data(in_data),
+			.out_data(out_data),
+			.fiford(fiford),
+			.fifowr(fifoer),
+			.nfull(nfull),
+			.nempty(nempty),
+			.address(address),
+			.sram_data(sram_data),
+			.rd(rd),
+			.wr(wr),
+			.clk(clk),
+			.rst(rst)	);
 
 	sram  m1(.Address(address),
 			.Data(sram_data),
