@@ -119,7 +119,7 @@ module fifo_tb;
 			if(out_data != data)
 				$display($time,"Error:Data retrieved(%h) not match the one stored(%h).\n",out_data,data);
 
-	#50;	
+		#50;	
 	end	
 	endtask
 
