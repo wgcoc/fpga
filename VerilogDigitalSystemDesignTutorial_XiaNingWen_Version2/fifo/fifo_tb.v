@@ -101,20 +101,20 @@ module fifo_tb;
 			.SRE(1'b0),			//SRAM片选，低有效
 			.SRW(wr)	);		//SRAM写使能
 
-			task write_fifo;
-			input [7:0] data;
-			begin
-					 in_data = data;
-				#50	 fifowr = 0;
-				#200 fifowr = 1;
-				#50;
-			end
-			endtask
+	task write_fifo;
+	input [7:0] data;
+	begin
+			in_data = data;
+		#50	fifowr = 0;
+		#200 	fifowr = 1;
+		#50;
+	end
+	endtask
 
 	task read_fifo_compare;
 	input [7:0] data;
 	begin
-		#50		fiford = 0; //从SRAM中读数
+		#50	fiford = 0; //从SRAM中读数
 		#200	fiford = 1;
 			if(out_data != data)
 				$display($time,"Error:Data retrieved(%h) not match the one stored(%h).\n",out_data,data);
@@ -123,7 +123,7 @@ module fifo_tb;
 	end	
 	endtask
 
-	task_reset_fifo;
+	task reset_fifo;
 	begin
 		#40 rst = 0;
 		#40 rst = 1;
