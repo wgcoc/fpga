@@ -38,9 +38,9 @@ module wptr_full #(
 	always@(posedge wclk or posedge wrst)
 	begin
 		if(wrst) wfull <= 1'b0;
-		else     wfull <= ((wgnext[ADDRSIZE]     != wrptr2[ADDRSIZE] )  &&
-						   (wgnext[ADDRSIZE-1]   != wrptr2[ADDRSIZE-1]) && 
-						   (wgnext[ADDRSIZE-2:0] == wrptr2[ADDRSIZE-2:0]));
+		else     wfull <= ((wgnext[ADDRSIZE] != wrptr2[ADDRSIZE] )  &&
+				  (wgnext[ADDRSIZE-1]!= wrptr2[ADDRSIZE-1]) && 
+				  (wgnext[ADDRSIZE-2:0] == wrptr2[ADDRSIZE-2:0]));
 	end
 	
 endmodule 

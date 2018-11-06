@@ -7,6 +7,7 @@ module sync_w2r #(
 	);
 	
 	reg [ADDRSIZE:0] rwptr1;
+
 	always @(posedge rclk or posedge rrst) 
 	begin 
 		if(rrst) 

@@ -3,9 +3,9 @@ module rptr_empty #(
 	)(
 	output     [ADDRSIZE-1:0] raddr,
 	output reg [ADDRSIZE:0]   rptr,
-	output reg 				  rempty,
+	output reg 		  rempty,
 	input      [ADDRSIZE:0]   rwptr2,
-	input					  rinc,rclk,rrst
+	input			  rinc,rclk,rrst
 	);
 
 	reg [ADDRSIZE:0] rbin,rgnext,rbnext;

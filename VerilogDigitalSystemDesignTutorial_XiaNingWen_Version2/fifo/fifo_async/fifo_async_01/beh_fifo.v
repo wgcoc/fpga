@@ -1,13 +1,13 @@
 module beh_fifo #( 
 	parameter DSIZE = 8, 
 	parameter ASIZE = 4 
-	)( 
+	)(
 	output [DSIZE-1:0] rdata, 
-	output 			   wfull, 
-	output 			   rempty, 
+	output 		   wfull, 
+	output 		   rempty, 
 	input  [DSIZE-1:0] wdata, 
-	input 			   winc, wclk, wrst, 
-	input 			   rinc, rclk, rrst 
+	input 		   winc, wclk, wrst, 
+	input 		   rinc, rclk, rrst 
 	); 
 
 	localparam MEMDEPTH = 1<<ASIZE; 
@@ -68,7 +68,7 @@ module beh_fifo #(
 	assign rdata  = ex_mem[rptr[ASIZE-1:0]]; 
 	assign rempty = (rptr == rwptr3); 
 	assign wfull  = ((wptr[ASIZE-1:0] == wrptr3[ASIZE-1:0]) && 
-					(wptr[ASIZE] 	  != wrptr3[ASIZE])); 
+			 (wptr[ASIZE] != wrptr3[ASIZE]) ); 
 
 endmodule 
 
