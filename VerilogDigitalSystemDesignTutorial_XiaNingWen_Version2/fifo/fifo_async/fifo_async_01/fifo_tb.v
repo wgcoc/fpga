@@ -6,11 +6,11 @@ module fifo_tb;
 	parameter ASIZE = 4;
  
 	wire [DSIZE-1:0] rdata, beh_rdata; 
-	wire 			 wfull, beh_wfull; 
-	wire 			 rempty, beh_rempty; 
+	wire 		 wfull, beh_wfull; 
+	wire 		 rempty, beh_rempty; 
 	reg  [DSIZE-1:0] wdata; 
-	reg 			 winc, wclk, wrst; 
-	reg 			 rinc, rclk, rrst; 
+	reg 		 winc, wclk, wrst; 
+	reg 		 rinc, rclk, rrst; 
 
 	fifo_async #(DSIZE, ASIZE) U1( 
 		.rdata(rdata), 
@@ -63,8 +63,8 @@ module fifo_tb;
 	end
 	
 	always @((rdata != beh_rdata  ) && 
-			 (wfull != beh_wfull  ) && 
-			 (rempty != beh_rempty) ) 
+		(wfull != beh_wfull  )  && 
+		(rempty != beh_rempty) ) 
 	begin 
 		$display($time, "rdata is %h, beh_rdata is %h", rdata, beh_rdata); 
 	end
