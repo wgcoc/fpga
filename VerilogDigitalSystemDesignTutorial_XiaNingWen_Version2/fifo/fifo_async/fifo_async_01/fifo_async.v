@@ -4,11 +4,11 @@ module fifo_async #(
 	parameter ASIZE = 4
 	)(
 	output [DSIZE-1:0] rdata,
-	output		   wfull,
-	output		   rempty,
+	output		       wfull,
+	output		       rempty,
 	input  [DSIZE-1:0] wdata,
-	input		   winc,wclk,wrst,
-	input		   rinc,rclk,rrst
+	input		          winc,wclk,wrst,
+	input		          rinc,rclk,rrst
 	);
 
 	wire [ASIZE-1:0] waddr, raddr;

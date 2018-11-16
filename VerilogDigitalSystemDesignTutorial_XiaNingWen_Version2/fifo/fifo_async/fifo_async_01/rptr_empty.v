@@ -3,9 +3,9 @@ module rptr_empty #(
 	)(
 	output     [ADDRSIZE-1:0] raddr,
 	output reg [ADDRSIZE:0]   rptr,
-	output reg 		  rempty,
+	output reg                rempty,
 	input      [ADDRSIZE:0]   rwptr2,
-	input			  rinc,rclk,rrst
+	input		                 rinc,rclk,rrst
 	);
 
 	reg [ADDRSIZE:0] rbin,rgnext,rbnext;
@@ -13,13 +13,11 @@ module rptr_empty #(
 	// Gray code pointer
 	always@(posedge rclk or posedge rrst)
 	begin
-		if(rrst)
-		begin
+		if(rrst)begin
 			rptr <= 0;
 			rbin <= 0;
 		end
-		else
-		begin
+		else begin
 			rptr <= rgnext;
 			rbin <= rbnext;
 		end

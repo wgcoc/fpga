@@ -5,6 +5,8 @@ module sync_r2w #(
 	input      [ADDRSIZE:0] rptr,
 	input			wclk,wrst
 	);
+	
+	reg [ADDRSIZE:0] wrptr1;
 
 	always@(posedge wclk or posedge wrst)
 	begin

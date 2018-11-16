@@ -5,7 +5,7 @@ module wptr_full #(
 	output reg [ADDRSIZE:0]   wptr,
 	output reg                wfull,
 	input      [ADDRSIZE:0]   wrptr2,
-	input			  winc,wclk,wrst
+	input			              winc,wclk,wrst
 	);
 
 	reg [ADDRSIZE:0] wbin,wgnext,wbnext;
